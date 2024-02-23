@@ -13,7 +13,7 @@ jobs:
       - name: Checkout Source
         uses: actions/checkout@v3
       - name: Polaris Scan
-        uses: synopsys-sig/synopsys-action@SIGINT-1522
+        uses: synopsys-sig/synopsys-action@SIGINT-1463
         with:
           ### SCANNING: Required fields
           polaris_server_url: ${{ secrets.POLARIS_SERVER_URL }}
@@ -23,6 +23,7 @@ jobs:
           ### SCANNING: Optional fields
           # polaris_application_name: ${{ github.event.organization.name }}
           polaris_project_name: "springboot-pipeline-test"
+          polaris_test_sca_type: "SCA-SIGNATURE"
           
           ### PULL REQUEST COMMENTS: Uncomment below to enable
           # polaris_prComment_enabled: true 

@@ -23,7 +23,7 @@ jobs:
           ### SCANNING: Optional fields
           # polaris_application_name: ${{ github.event.organization.name }}
           polaris_project_name: "springboot-pipeline-test"
-          polaris_test_sca_type: "SCA-SIGNATURE"
+          polaris_test_sca_type: "SCA-SIGNATURE" 
           
           ### PULL REQUEST COMMENTS: Uncomment below to enable
           # polaris_prComment_enabled: true 

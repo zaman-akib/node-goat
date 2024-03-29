@@ -18,7 +18,7 @@ jobs:
         uses: synopsys-sig/synopsys-action@main
         with:
           polaris_server_url: ${{ secrets.POLARIS_SERVER_URL }}
-          polaris_access_token: ${{ secrets.POLARIS_ACCESSTOKEN }}
+          polaris_access_token: ${{ secrets.POLARIS_ACCESS_TOKEN }}
           polaris_application_name: "test_jenkins"
           polaris_project_name: "springboot-pipeline-test"
           polaris_assessment_types: "SCA,SAST"
@@ -32,7 +32,7 @@ jobs:
         uses: synopsys-sig/synopsys-action@v1.6.0
         with:
           polaris_server_url: ${{ secrets.POLARIS_SERVER_URL }}
-          polaris_access_token: ${{ secrets.POLARIS_ACCESSTOKEN }}
+          polaris_access_token: ${{ secrets.POLARIS_ACCESS_TOKEN }}
           polaris_application_name: "test_jenkins"
           polaris_project_name: "springboot-pipeline-test"
           polaris_assessment_types: "SCA,SAST"

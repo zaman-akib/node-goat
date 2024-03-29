@@ -12,19 +12,34 @@ jobs:
     steps:
       - name: Checkout Source
         uses: actions/checkout@v3
-      - name: Polaris Scan
+ 
+      - name: Polaris Full Scan
+        if: ${{ github.event_name != 'pull_request' }}
         uses: synopsys-sig/synopsys-action@main
         with:
-          ### SCANNING: Required fields
-          polaris_server_url: ${{ secrets.POLARIS_SERVER_URL }}
-          polaris_access_token: ${{ secrets.POLARIS_ACCESS_TOKEN }}
-          polaris_assessment_types: "SCA"
-          
-          ### SCANNING: Optional fields
-          # polaris_application_name: ${{ github.event.organization.name }}
+          polaris_server_url: ${{ secrets.POLARIS_SERVERURL }}
+          polaris_access_token: ${{ secrets.POLARIS_ACCESSTOKEN }}
+          # polaris_application_name: "springboot-pipeline-test"
           polaris_project_name: "springboot-pipeline-test"
-          # polaris_test_sca_type: "SCA-SIGNATURE" 
-          
-          ### PULL REQUEST COMMENTS: Uncomment below to enable
-          # polaris_prComment_enabled: true 
-          # github_token: ${{ secrets.GITHUB_TOKEN }} # Required when PR comments is enabled
+          polaris_assessment_types: "SCA,SAST"
+ 
+            ### Uncomment below configuration if Synopsys Bridge diagnostic files needs to be uploaded
+            # include_diagnostics: true
+ 
+      - name: Polaris PR Scan
+        if: ${{ github.event_name == 'pull_request' }}
+        uses: synopsys-sig/synopsys-action@v1.6.0
+        with:
+          polaris_server_url: ${{ secrets.POLARIS_SERVERURL }}
+          polaris_access_token: ${{ secrets.POLARIS_ACCESSTOKEN }}
+          # polaris_application_name: "springboot-pipeline-test"
+          polaris_project_name: "springboot-pipeline-test"
+          polaris_assessment_types: "SCA,SAST"
+ 
+          ### Below configuration is used to enable feedback from Polaris security testing as pull request comment
+          polaris_prComment_enabled: true
+          github_token: ${{ secrets.GITHUBTOKEN }}
+          # Mandatory when polaris_prComment_enabled is set to 'true'
+ 
+          ### Uncomment below configuration if Synopsys Bridge diagnostic files needs to be uploaded
+          # include_diagnostics: true

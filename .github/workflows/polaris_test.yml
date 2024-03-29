@@ -19,9 +19,10 @@ jobs:
         with:
           polaris_server_url: ${{ secrets.POLARIS_SERVER_URL }}
           polaris_access_token: ${{ secrets.POLARIS_ACCESSTOKEN }}
-          # polaris_application_name: "springboot-pipeline-test"
+          polaris_application_name: "test_jenkins"
           polaris_project_name: "springboot-pipeline-test"
           polaris_assessment_types: "SCA,SAST"
+          polaris_branch_name: "main"
  
             ### Uncomment below configuration if Synopsys Bridge diagnostic files needs to be uploaded
             # include_diagnostics: true

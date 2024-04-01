@@ -21,7 +21,7 @@ pipeline {
                 script {
                     synopsys_scan product: "POLARIS", polaris_assessment_types: "SCA,SAST", polaris_application_name: "test_jenkins", 
                      polaris_project_name: "springboot-pipeline-test", polaris_prComment_enabled: true, polaris_branch_name: "main",
-                        polaris_branch_parent_name: "main"
+                        polaris_branch_parent_name: "master"
                 }	
             }
         }

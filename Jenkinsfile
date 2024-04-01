@@ -19,7 +19,8 @@ pipeline {
               	echo 'SYNOPSYS SECURITY SCAN EXECUTION STARTED'
 
                 script {
-                   synopsys_scan product:'blackduck',  blackduck_url: 'https://testing.blackduck.synopsys.com/', blackduck_scan_full: false 
+                    synopsys_scan product: "POLARIS", polaris_assessment_types: "SCA,SAST", polaris_application_name: "test_jenkins", 
+                     polaris_project_name: "springboot-pipeline-test", polaris_prComment_enabled: true, polaris_branch_name: "main"
                 }	
             }
         }

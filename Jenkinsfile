@@ -5,6 +5,6 @@ node {
                      polaris_project_name: "springboot-pipeline-test", polaris_assessment_types: "SCA, SAST", 
                      polaris_branch_name: "main", polaris_prComment_enabled: true,
                      polaris_branch_parent_name: "master", 
-                     polaris_prComment_severities: "high, critical, medium, low, informational"
+                     polaris_prComment_severities: "high, critical"
      }
 }

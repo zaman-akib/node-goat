@@ -19,7 +19,7 @@ pipeline {
               	echo 'SYNOPSYS SECURITY SCAN EXECUTION STARTED'
 
                 script {
-                    synopsys_scan product: "POLARIS", polaris_assessment_types: "SAST", polaris_application_name: "test_jenkins", 
+                    synopsys_scan product: "POLARIS", polaris_assessment_types: "SCA", polaris_application_name: "test_jenkins", 
                      polaris_project_name: "springboot-pipeline-test", polaris_branch_name: "polaris-pr", polaris_prComment_enabled: true,
                         polaris_branch_parent_name: "master", polaris_prComment_severities: "high, critical, informational, low, medium"
                 }	

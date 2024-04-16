@@ -1,41 +1,33 @@
-name: CI-BlackDuck-Basic
+name: CI-Polaris-Basic 
 on:
   push:
     branches: [ main, master, develop, stage, release ]
   pull_request:
     branches: [ main, master, develop, stage, release ]
   workflow_dispatch:
-    
+  
 jobs:
   build:
     runs-on: [ self-hosted ]
     steps:
       - name: Checkout Source
         uses: actions/checkout@v3
-      - name: Black Duck Scan
+      - name: Polaris Scan
         uses: synopsys-sig/synopsys-action@SIGINT-1755
-        
-        ### Configure DETECT environment variables
-        env:
-          DETECT_PROJECT_NAME: ${{ github.event.repository.name }}
-          
         with:
           ### SCANNING: Required fields
-          blackduck_url: ${{ vars.BLACKDUCK_URL }}
-          blackduck_token: ${{ secrets.BLACKDUCK_TOKEN }}
-         
-          ### SCANNING: Optional fields
-          # blackduck_scan_failure_severities: 'BLOCKER,CRITICAL'
+          polaris_server_url: ${{ vars.POLARIS_SERVER_URL }}
+          polaris_access_token: ${{ secrets.POLARIS_ACCESS_TOKEN }}
+          polaris_assessment_types: "SCA,SAST"
           
-          ### FIX PULL REQUEST CREATION: Uncomment below to enable
-          # blackduck_fixpr_enabled: true
-          # github_token: ${{ secrets.GITHUB_TOKEN }} # Required when Fix PRs is enabled
+          ### SCANNING: Optional fields
+          polaris_application_name: ${{ github.event.repository.name }}
+          polaris_project_name: ${{ github.event.repository.name }}
           
           ### PULL REQUEST COMMENTS: Uncomment below to enable
-          blackduck_prcomment_enabled: true 
-          github_token: ${{ secrets.GITHUBTOKEN }} # Required when PR comments is enabled
+          polaris_prComment_enabled: true 
+          github_token: ${{ secrets.GITHUB_TOKEN }} # Required when PR comments is enabled
 
-          ### SARIF report generation and upload to GitHub Adavanced Security: Uncomment below to enable
-          # blackduck_reports_sarif_create: true # Create Black Duck SARIF report and upload it as artifact
-          # blackduck_upload_sarif_report: true  # Upload Black Duck SARIF report in GitHub Advanced Security tab
-          # github_token: ${{ secrets.GITHUB_TOKEN }} # Required when blackduck_upload_sarif_report is set as true
+          ### SARIF report parameters
+          #polaris_reports_sarif_create: true
+          #polaris_upload_sarif_report: true

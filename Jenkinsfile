@@ -1,5 +1,7 @@
 pipeline {
-    agent any
+    agent {
+            label 'akib-linux'
+        }
     // environment {
     //     BLACKDUCK_TRUST_CERT=true
     // }

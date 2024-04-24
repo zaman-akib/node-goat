@@ -14,13 +14,13 @@
     "express-session": "^1.13.0",
     "forever": "^2.0.0",
     "helmet": "^2.0.0",
-    "marked": "0.3.5",
+    "marked": "0.8.2",
     "mongodb": "^2.1.18",
     "needle": "2.2.4",
     "node-esapi": "0.0.1",
     "serve-favicon": "^2.3.0",
     "swig": "^1.4.2",
-    "underscore": "^1.8.3"
+    "underscore": "^1.13.6"
   },
   "comments": {
     "//": "a9 insecure components"
@@ -42,8 +42,8 @@
     "async": "^2.0.0-rc.4",
     "cross-env": "^7.0.2",
     "cypress": "^3.3.1",
-    "grunt": "^1.0.3",
-    "grunt-cli": "^1.2.0",
+    "grunt": "^1.6.1",
+    "grunt-cli": "^1.4.3",
     "grunt-concurrent": "^2.3.0",
     "grunt-contrib-jshint": "^3.0.0",
     "grunt-contrib-watch": "^1.0.0",

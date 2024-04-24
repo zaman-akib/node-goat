@@ -13,7 +13,7 @@ jobs:
       - name: Checkout Source
         uses: actions/checkout@v3
       - name: Black Duck Scan
-        uses: synopsys-sig/synopsys-action@main
+        uses: synopsys-sig/synopsys-action@SIGINT-1661
         
         ### Configure DETECT environment variables
         env:
@@ -32,8 +32,8 @@ jobs:
           # github_token: ${{ secrets.GITHUB_TOKEN }} # Required when Fix PRs is enabled
           
           ### PULL REQUEST COMMENTS: Uncomment below to enable
-          # blackduck_prcomment_enabled: true 
-          # github_token: ${{ secrets.GITHUBTOKEN }} # Required when PR comments is enabled
+          blackduck_prcomment_enabled: true 
+          github_token: ${{ secrets.GITHUBTOKEN }} # Required when PR comments is enabled
 
           ### SARIF report generation and upload to GitHub Adavanced Security: Uncomment below to enable
           # blackduck_reports_sarif_create: true # Create Black Duck SARIF report and upload it as artifact

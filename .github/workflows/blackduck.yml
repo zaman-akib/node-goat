@@ -29,7 +29,6 @@ jobs:
           
           ### FIX PULL REQUEST CREATION: Uncomment below to enable
           blackduck_fixpr_enabled: true
-          blackduck_fixpr_filter_severities: "CRITICAL, HIGH, MEDIUM, LOW"
           github_token: ${{ secrets.GITHUB_TOKEN }} # Required when Fix PRs is enabled
           
           ### PULL REQUEST COMMENTS: Uncomment below to enable

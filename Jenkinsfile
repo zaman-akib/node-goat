@@ -15,13 +15,12 @@ pipeline {
             }
         }
         stage("synopsys-security-scan") {
-          steps {
-              	echo 'SYNOPSYS SECURITY SCAN EXECUTION STARTED'
-
-                script {
-                   synopsys_scan product:'blackduck',  blackduck_url: 'https://testing.blackduck.synopsys.com/', blackduck_scan_full: false 
-                }	
-            }
+           steps {
+               echo 'SYNOPSYS SECURITY SCAN STARTED'
+               script {
+                   synopsys_scan product: "blackduck"
+                }
+            }           
         }
         stage("build") {
             steps {

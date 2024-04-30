@@ -18,7 +18,7 @@ pipeline {
            steps {
                echo 'SYNOPSYS SECURITY SCAN STARTED'
                script {
-                   synopsys_scan product: "blackduck"
+                   synopsys_scan product: "polaris", polaris_prComment_enabled: true, polaris_reports_sarif_create: true
                 }
             }           
         }

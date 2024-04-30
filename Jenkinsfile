@@ -24,7 +24,7 @@ pipeline {
                        polaris_assessment_types: "SAST,SCA", 
                        polaris_branch_name: "main",
                        polaris_application_name: "test_jenkins",
-                       polaris_project_name: "springboot-pipeline-test"
+                       polaris_project_name: "springboot-pipeline-test",
                        polaris_prComment_enabled: true,
                        //polaris_prComment_severities: 'CRITICAL,HIGH', // Accepts Multiple Values
                        //polaris_branch_parent_name: "POLARIS_PARENT_BRANCH_NAME",

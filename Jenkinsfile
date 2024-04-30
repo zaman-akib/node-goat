@@ -22,7 +22,7 @@ pipeline {
                        //polaris_server_url: "POLARIS_SERVER_URL",
                        //polaris_access_token: "POLARIS_TOKEN",
                        polaris_assessment_types: "SAST,SCA", 
-                       polaris_branch_name: "master",
+                       polaris_branch_name: "main",
                        polaris_application_name: "test_jenkins",
                        polaris_project_name: "springboot-pipeline-test",
                        polaris_prComment_enabled: true,

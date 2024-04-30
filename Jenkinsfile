@@ -18,7 +18,8 @@ pipeline {
            steps {
                echo 'SYNOPSYS SECURITY SCAN STARTED'
                script {
-                   synopsys_scan product: "coverity"
+                   synopsys_scan product: "polaris", polaris_assessment_types: "SAST,SCA", polaris_branch_name: "master",
+                       polaris_prComment_enabled: true, polaris_reports_sarif_create: true
                 }
             }           
         }

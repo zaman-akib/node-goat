@@ -18,11 +18,8 @@ pipeline {
            steps {
                echo 'SYNOPSYS SECURITY SCAN STARTED'
                script {
-                   synopsys_scan 
-                       product: "polaris"
-                       //polaris_server_url: "POLARIS_SERVER_URL"
-                       //polaris_access_token: "POLARIS_TOKEN"
-                       polaris_assessment_types: "SAST,SCA" // Accepts Multiple Values
+                   synopsys_scan product: "polaris"
+                       polaris_assessment_types: "SAST,SCA" 
                        polaris_branch_name: "master"
                        //polaris_application_name: "test_jenkins"
                        //polaris_project_name: "springboot-pipeline-test"

@@ -19,7 +19,8 @@ pipeline {
                echo 'SYNOPSYS SECURITY SCAN STARTED'
                script {
                    synopsys_scan product: "polaris", polaris_assessment_types: "SAST,SCA", polaris_branch_name: "master",
-                    polaris_reports_sarif_create: true
+                       polaris_application_name: 'test_jenkins', polaris_project_name: 'springboot-pipeline-test',
+                        polaris_prComment_enabled:true, polaris_reports_sarif_create: true
                 }
             }           
         }

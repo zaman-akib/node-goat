@@ -1,7 +1,5 @@
-pipeline {
-    agent {
-            label 'akib-linux'
-        }
+                                    pipeline {
+    agent any
     // environment {
     //     BLACKDUCK_TRUST_CERT=true
     // }
@@ -17,16 +15,15 @@ pipeline {
             }
         }
         stage("synopsys-security-scan") {
-          steps {
-              	echo 'SYNOPSYS SECURITY SCAN EXECUTION STARTED'
-
-                script {
-                   synopsys_scan product: "polaris", polaris_application_name: "test_jenkins",
-                                        polaris_project_name: "springboot-pipeline-test", polaris_assessment_types: "SCA, SAST",
-                                        polaris_branch_name: "main", polaris_prComment_enabled: true, polaris_prComment_severities: "high, critical",
-                                        polaris_branch_parent_name: "master"
-                }	
-            }
+           steps {
+               echo 'SYNOPSYS SECURITY SCAN STARTED'
+               script {
+                   synopsys_scan product: "blackduck",
+                       blackduck_prComment_enabled: true,
+                       blackduck_reports_sarif_create: true
+                       
+                }
+            }           
         }
         stage("build") {
             steps {

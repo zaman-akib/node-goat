@@ -22,8 +22,8 @@ jobs:
           polaris_branch_name: "main"
           
           ### SCANNING: Optional fields
-          # polaris_application_name: ${{ github.event.repository.name }}
-          # polaris_project_name: ${{ github.event.repository.name }}
+          polaris_application_name: "test_jenkins"
+          polaris_project_name: "springboot-pipeline-test"
           
           ### PULL REQUEST COMMENTS: Uncomment below to enable
           polaris_prComment_enabled: true 

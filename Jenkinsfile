@@ -1,4 +1,4 @@
-y                                    pipeline {
+pipeline {
     agent any
     // environment {
     //     BLACKDUCK_TRUST_CERT=true

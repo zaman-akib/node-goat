@@ -1,4 +1,4 @@
-pipeline {
+                                    pipeline {
     agent any
     // environment {
     //     BLACKDUCK_TRUST_CERT=true
@@ -18,9 +18,8 @@ pipeline {
            steps {
                echo 'SYNOPSYS SECURITY SCAN STARTED'
                script {
-                   synopsys_scan product: "blackduck",
-                       blackduck_prComment_enabled: true,
-                       blackduck_reports_sarif_create: true
+                   synopsys_scan product: "coverity",
+                       coverity_prComment_enabled: true
                        
                 }
             }           

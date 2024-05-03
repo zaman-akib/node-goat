@@ -21,6 +21,7 @@ pipeline {
                    synopsys_scan product: "blackduck",
                        blackduck_prComment_enabled: true,
                        blackduck_reports_sarif_create: true
+               }
             }           
         }
         stage("build") {

@@ -23,7 +23,7 @@ pipeline {
                        blackduck_prComment_enabled: true
                        // mark_build_if_issues_are_present: 'UNSTABLE'
 
-                   echo 'Returned status is' + status;
+                   echo 'Returned status is: ' + status;
                }
             }           
         }

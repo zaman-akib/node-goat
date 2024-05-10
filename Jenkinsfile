@@ -18,10 +18,11 @@ pipeline {
            steps {
                echo 'SYNOPSYS SECURITY SCAN STARTED'
                script {
-                   synopsys_scan product: "blackduck",
-                       blackduck_scan_full: true,
-                       blackduck_prComment_enabled: true
-                       //mark_build_if_issues_are_present: 'UNSTABLE'
+                   synopsys_scan product: "polaris",
+                       polaris_assessment_types: "SAST,SCA", 
+                       polaris_branch_name: "main",
+                       polaris_application_name: "test_jenkins",
+                       polaris_project_name: "springboot-pipeline-test"
                 }
             }           
         }

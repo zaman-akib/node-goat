@@ -19,6 +19,7 @@ pipeline {
                echo 'SYNOPSYS SECURITY SCAN STARTED'
                script {
                    synopsys_scan product: "blackduck",
+                       blackduck_scan_full: true,
                        blackduck_prComment_enabled: true
                        //mark_build_if_issues_are_present: 'UNSTABLE'
                 }

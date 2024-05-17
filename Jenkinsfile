@@ -21,7 +21,7 @@ pipeline {
                    def status = synopsys_scan product: "blackduck",
                        blackduck_scan_full: false,
                        blackduck_prComment_enabled: true,
-                       mark_build_if_issues_present: 'UNSTABLE'
+                       mark_build_status: 'UNSTABLE'
 
                    echo 'Returned status is: ' + status;
                }

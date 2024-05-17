@@ -18,9 +18,12 @@ pipeline {
            steps {
                echo 'SYNOPSYS SECURITY SCAN STARTED'
                script {
-                   def status = synopsys_scan product: "blackduck",
-                       blackduck_scan_full: false,
-                       blackduck_prComment_enabled: true,
+                   def status = synopsys_scan product: "polaris",
+                       polaris_assessment_types: "SAST,SCA", 
+                       polaris_branch_name: "main",
+                       polaris_application_name: "test_jenkins",
+                       polaris_project_name: "springboot-pipeline-test",
+                       polaris_prComment_enabled: true,
                        mark_build_status: 'UNSTABLE'
 
                    echo 'Returned status is: ' + status;

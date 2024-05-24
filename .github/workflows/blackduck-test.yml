@@ -31,7 +31,7 @@ jobs:
           # POLARIS_ASSESSMENT_MODE: "SOURCE_UPLOAD"
           # PROJECT_DIRECTORY: "TEST/DIR"
           # PROJECT_SOURCE_ARCHIVE: "test.zip"
-          # PROJECT_SOURCE_PRESERVESYMLINKS: false
+          PROJECT_SOURCE_PRESERVESYMLINKS: true
           # PROJECT_SOURCE_EXCLUDES: "test1,test2,test3"
          
           ### SCANNING: Optional fields

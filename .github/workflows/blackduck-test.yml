@@ -25,8 +25,8 @@ jobs:
           # blackduck_url: ${{ vars.BLACKDUCK_URL }}
           # blackduck_token: ${{ secrets.BLACKDUCK_TOKEN }}
 
-          polaris_server_url: "test_url"
-          polaris_access_token: "test_token"
+          polaris_server_url: ${{ vars.POLARIS_SERVER_URL }}
+          polaris_access_token: ${{ secrets.POLARIS_ACCESS_TOKEN }}
           polaris_assessment_types: "SCA,SAST"
           POLARIS_ASSESSMENT_MODE: "SOURCE_UPLOAD"
           PROJECT_DIRECTORY: "TEST/DIR"

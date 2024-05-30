@@ -2,7 +2,7 @@ pipeline {
     agent any
     environment {
         // BLACKDUCK_TRUST_CERT=true
-        POLARIS_ACCESSTOKEN = credentials('poc-polaris-token')
+        BRIDGE_POLARIS_ACCESSTOKEN = credentials('poc-polaris-token')
     }
     stages {
         stage("unit-test") {

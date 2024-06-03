@@ -25,14 +25,14 @@ jobs:
           # blackduck_url: ${{ vars.BLACKDUCK_URL }}
           # blackduck_token: ${{ secrets.BLACKDUCK_TOKEN }}
           # PROJECT_DIRECTORY: "test/dir"
-          coverity_url: ${{ vars.COVERITY_URL }}
-          coverity_user: ${{ secrets.COVERITY_USER }}
-          coverity_passphrase: ${{ secrets.COVERITY_PASSPHRASE }}
+          # coverity_url: ${{ vars.COVERITY_URL }}
+          # coverity_user: ${{ secrets.COVERITY_USER }}
+          # coverity_passphrase: ${{ secrets.COVERITY_PASSPHRASE }}
           # PROJECT_DIRECTORY: "test/dir"
           
-          # polaris_server_url: ${{ vars.POLARIS_SERVER_URL }}
-          # polaris_access_token: ${{ secrets.POLARIS_ACCESS_TOKEN }}
-          # polaris_assessment_types: "SCA,SAST"
+          polaris_server_url: ${{ vars.POLARIS_SERVER_URL }}
+          polaris_access_token: ${{ secrets.POLARIS_ACCESS_TOKEN }}
+          polaris_assessment_types: "SCA,SAST"
           # POLARIS_ASSESSMENT_MODE: "SOURCE_UPLOAD"
           # PROJECT_DIRECTORY: "test/dir"
           # PROJECT_SOURCE_ARCHIVE: "test/dir.zip"

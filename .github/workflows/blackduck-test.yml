@@ -32,7 +32,7 @@ jobs:
           
           polaris_server_url: ${{ vars.POLARIS_SERVER_URL }}
           polaris_access_token: ${{ secrets.POLARIS_ACCESS_TOKEN }}
-          polaris_assessment_types: "SCA,    SAST"
+          polaris_assessment_types: "SCA,      SAST"
           POLARIS_ASSESSMENT_MODE: "SOURCE_UPLOAD"
           PROJECT_DIRECTORY: "test/dir"
           PROJECT_SOURCE_ARCHIVE: "test/dir.zip"

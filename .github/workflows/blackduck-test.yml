@@ -28,14 +28,14 @@ jobs:
           coverity_user: ${{ secrets.COVERITY_USER }}
           coverity_passphrase: ${{ secrets.COVERITY_PASSPHRASE }}
           
-          # polaris_server_url: ${{ vars.POLARIS_SERVER_URL }}
-          # polaris_access_token: ${{ secrets.POLARIS_ACCESS_TOKEN }}
-          # polaris_assessment_types: "SCA,SAST"
-          # POLARIS_ASSESSMENT_MODE: "SOURCE_UPLOAD"
-          # PROJECT_DIRECTORY: "TEST/DIR"
-          # PROJECT_SOURCE_ARCHIVE: "test.zip"
+          polaris_server_url: ${{ vars.POLARIS_SERVER_URL }}
+          polaris_access_token: ${{ secrets.POLARIS_ACCESS_TOKEN }}
+          polaris_assessment_types: "SCA,SAST"
+          POLARIS_ASSESSMENT_MODE: "SOURCE_UPLOAD"
+          PROJECT_DIRECTORY: "/home/maruf/nodegoat"
+          PROJECT_SOURCE_ARCHIVE: "/home/maruf/nodegoat.zip"
           # PROJECT_SOURCE_PRESERVESYMLINKS: true
-          # PROJECT_SOURCE_EXCLUDES: "test1,test2,test3"
+          PROJECT_SOURCE_EXCLUDES: "test1, test2, test3"
          
           ### SCANNING: Optional fields
           # blackduck_scan_failure_severities: 'BLOCKER,CRITICAL'

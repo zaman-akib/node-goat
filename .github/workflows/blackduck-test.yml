@@ -36,7 +36,7 @@ jobs:
           POLARIS_ASSESSMENT_MODE: "SOURCE_UPLOAD"
           PROJECT_DIRECTORY: "test/dir"
           PROJECT_SOURCE_ARCHIVE: "test/dir.zip"
-          PROJECT_SOURCE_EXCLUDES: ".git,   .git"
+          PROJECT_SOURCE_EXCLUDES: " ,   , "
           # PROJECT_SOURCE_PRESERVESYMLINKS: true
          
           ### SCANNING: Optional fields

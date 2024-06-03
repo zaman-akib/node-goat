@@ -24,7 +24,7 @@ jobs:
           ### SCANNING: Required fields
           blackduck_url: ${{ vars.BLACKDUCK_URL }}
           blackduck_token: ${{ secrets.BLACKDUCK_TOKEN }}
-          PROJECT_DIRECTORY: "test/dir"
+          # PROJECT_DIRECTORY: "test/dir"
           # coverity_url: ${{ vars.COVERITY_URL }}
           # coverity_user: ${{ secrets.COVERITY_USER }}
           # coverity_passphrase: ${{ secrets.COVERITY_PASSPHRASE }}

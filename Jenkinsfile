@@ -7,8 +7,8 @@ node {
         polaris_assessment_types: "SCA, SAST", 
         polaris_prComment_enabled: true,
         polaris_prComment_severities: "high, critical, medium, low, informational",
-        polaris_branch_name: "main",
-        polaris_branch_parent_name: "master",
+        // polaris_branch_name: "main",
+        // polaris_branch_parent_name: "master",
 
         polaris_assessment_mode: "SOURCE_UPLOAD",
         project_directory: "/home/maruf/nodegoat",

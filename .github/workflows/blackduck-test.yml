@@ -41,7 +41,8 @@ jobs:
           polaris_assessment_mode: "CI"
           project_directory: "/home/maruf/nodegoat"
           project_source_archive: "/home/maruf/nodegoat.zip"
-          # project_source_excludes: " .git"
+          project_source_excludes: " .git"
+          polaris_reports_sarif_create: true
           # PROJECT_SOURCE_PRESERVESYMLINKS: true
          
           ### SCANNING: Optional fields

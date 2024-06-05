@@ -35,6 +35,7 @@ jobs:
           project_source_archive: "/home/maruf/nodegoat.zip"
           project_source_excludes: " .git"
           polaris_prComment_enabled: true
+          polaris_branch_name: "main"
           
           ### PULL REQUEST COMMENTS: Uncomment below to enable
           # polaris_prComment_enabled: true 

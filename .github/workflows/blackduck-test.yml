@@ -22,9 +22,9 @@ jobs:
           
         with:
           ### SCANNING: Required fields
-          # blackduck_url: ${{ vars.BLACKDUCK_URL }}
-          # blackduck_token: ${{ secrets.BLACKDUCK_TOKEN }}
-          # PROJECT_DIRECTORY: "test/dir"
+          blackduck_url: ${{ vars.BLACKDUCK_URL }}
+          blackduck_token: ${{ secrets.BLACKDUCK_TOKEN }}
+          PROJECT_DIRECTORY: "/home/maruf/nodegoat"
           # coverity_url: ${{ vars.COVERITY_URL }}
           # coverity_user: ${{ secrets.COVERITY_USER }}
           # coverity_passphrase: ${{ secrets.COVERITY_PASSPHRASE }}
@@ -33,16 +33,16 @@ jobs:
           
           # PROJECT_DIRECTORY: "test/dir"
           
-          polaris_server_url: ${{ vars.POLARIS_SERVER_URL }}
-          polaris_access_token: ${{ secrets.POLARIS_ACCESS_TOKEN }}
-          polaris_assessment_types: "SCA,SAST"
-          polaris_application_name: "test_jenkins"
-          polaris_project_name: "springboot-pipeline-test"
-          polaris_assessment_mode: "SOURCE_UPLOAD"
-          project_directory: "/home/maruf/nodegoat"
-          project_source_archive: "/home/maruf/nodegoat.zip"
-          project_source_excludes: " .git"
-          polaris_reports_sarif_create: true
+          # polaris_server_url: ${{ vars.POLARIS_SERVER_URL }}
+          # polaris_access_token: ${{ secrets.POLARIS_ACCESS_TOKEN }}
+          # polaris_assessment_types: "SCA,SAST"
+          # polaris_application_name: "test_jenkins"
+          # polaris_project_name: "springboot-pipeline-test"
+          # polaris_assessment_mode: "SOURCE_UPLOAD"
+          # project_directory: "/home/maruf/nodegoat"
+          # project_source_archive: "/home/maruf/nodegoat.zip"
+          # project_source_excludes: " .git"
+          # polaris_reports_sarif_create: true
           # PROJECT_SOURCE_PRESERVESYMLINKS: true
          
           ### SCANNING: Optional fields

@@ -39,8 +39,8 @@ jobs:
           polaris_application_name: "test_jenkins"
           polaris_project_name: "springboot-pipeline-test"
           polaris_assessment_mode: "SOURCE_UPLOAD"
-          project_directory: "/home/maruf/invalid"
-          project_source_archive: "/home/maruf/nodegoat.zip"
+          # project_directory: "/home/maruf/invalid"
+          project_source_archive: "/home/maruf/invalid.zip"
           # project_source_excludes: " .git"
           # PROJECT_SOURCE_PRESERVESYMLINKS: true
          

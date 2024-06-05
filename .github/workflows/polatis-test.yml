@@ -36,7 +36,7 @@ jobs:
           project_source_excludes: " .git"
           polaris_prComment_enabled: true
           polaris_prComment_severities: "Critical,High,Medium,Low,Informational"
-          polaris_branch_name: "main"
+          polaris_branch_name: "master"
           
           ### PULL REQUEST COMMENTS: Uncomment below to enable
           # polaris_prComment_enabled: true 

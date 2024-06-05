@@ -44,7 +44,7 @@ jobs:
           project_source_archive: "/home/maruf/nodegoat.zip"
           project_source_excludes: " .git"
           polaris_prComment_enabled: true
-          polaris_reports_sarif_create: true
+          # polaris_reports_sarif_create: true
           github_token: ${{ secrets.GITHUBTOKEN }} # Required when PR comments is enabled
 
           ### SARIF report generation and upload to GitHub Adavanced Security: Uncomment below to enable

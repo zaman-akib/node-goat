@@ -38,9 +38,9 @@ jobs:
           polaris_assessment_types: "SCA,SAST"
           polaris_application_name: "test_jenkins"
           polaris_project_name: "springboot-pipeline-test"
-          polaris_assessment_mode: "SOURCE_UPLOAD"
-          # project_directory: "/home/maruf/invalid"
-          project_source_archive: "/home/maruf/invalid.zip"
+          polaris_assessment_mode: "CI"
+          project_directory: "/home/maruf/nodegoat"
+          project_source_archive: "/home/maruf/nodegoat.zip"
           # project_source_excludes: " .git"
           # PROJECT_SOURCE_PRESERVESYMLINKS: true
          

@@ -36,6 +36,8 @@ jobs:
           polaris_server_url: ${{ vars.POLARIS_SERVER_URL }}
           polaris_access_token: ${{ secrets.POLARIS_ACCESS_TOKEN }}
           polaris_assessment_types: "SCA,SAST"
+          polaris_application_name: "test_jenkins"
+          polaris_project_name: "springboot-pipeline-test"
           polaris_assessment_mode: "SOURCE_UPLOAD"
           project_directory: "/home/maruf/nodegoat"
           project_source_archive: "/home/maruf/nodegoat.zip"

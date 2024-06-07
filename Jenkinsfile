@@ -1,3 +1,4 @@
+
 node {
       checkout scm
       stage("synopsys-security-scan") {
@@ -14,5 +15,6 @@ node {
         project_directory: "/home/maruf/nodegoat",
         project_source_archive: "/home/maruf/nodegoat.zip",
         project_source_excludes: ".git, .gitignore"
-      }
+   }
 }
+

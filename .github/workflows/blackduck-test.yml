@@ -40,7 +40,7 @@ jobs:
           polaris_application_name: "test_jenkins"
           polaris_project_name: "springboot-pipeline-test"
           polaris_assessment_mode: "SOURCE_UPLOAD"
-          project_directory: "/home/maruf/nodegoat"
+          # project_directory: "/home/maruf/nodegoat"
           # project_source_archive: "/home/maruf/nodegoat.zip"
           project_source_excludes: " .git"
           # polaris_reports_sarif_create: true

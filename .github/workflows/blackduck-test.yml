@@ -1,42 +1,64 @@
-
-name: CI-BlackDuck-Basic
+name: CI-Polaris 
 on:
   push:
     branches: [ main, master, develop, stage, release ]
   pull_request:
-    branches: [ main, master, develop, stage, release ]
-  workflow_dispatch:
-    
+    branches: [ main, master, develop, stage, release ]  
 jobs:
-  build:
+  polaris-scan:
     runs-on: [ self-hosted ]
     steps:
       - name: Checkout Source
-        uses: actions/checkout@v3
-      - name: Black Duck Scan
-        uses: synopsys-sig/synopsys-action@SIGINT-1661
-        
-        ### Configure DETECT environment variables
-        env:
-          DETECT_PROJECT_NAME: ${{ github.event.repository.name }}
-          
+        uses: actions/checkout@main
+            
+      - name: Polaris Full Scan
+        if: ${{ github.event_name != 'pull_request' }}
+        uses: synopsys-sig/synopsys-action@main
         with:
-          ### SCANNING: Required fields
-          blackduck_url: ${{ vars.BLACKDUCK_URL }}
-          blackduck_token: ${{ secrets.BLACKDUCK_TOKEN }}
-         
-          ### SCANNING: Optional fields
-          # blackduck_scan_failure_severities: 'BLOCKER,CRITICAL'
+          polaris_server_url: ${{ vars.POLARIS_SERVER_URL }}
+          polaris_access_token: ${{ secrets.POLARIS_ACCESS_TOKEN }}
+          polaris_application_name: "test_jenkins"
+          polaris_project_name: "springboot-pipeline-test"
+          polaris_assessment_types: "SCA,SAST"
           
-          ### FIX PULL REQUEST CREATION: Uncomment below to enable
-          # blackduck_fixpr_enabled: true
-          # github_token: ${{ secrets.GITHUB_TOKEN }} # Required when Fix PRs is enabled
-          
-          ### PULL REQUEST COMMENTS: Uncomment below to enable
-          blackduck_prcomment_enabled: true 
-          github_token: ${{ secrets.GITHUBTOKEN }} # Required when PR comments is enabled
+          project_directory: "/home/maruf/nodegoat"
+          ### Uncomment below configuration for source code upload 
+          polaris_assessment_mode: "SOURCE_UPLOAD"
+          project_source_archive: "/home/maruf/nodegoat.zip"
+          project_source_excludes: ".git"   # Accepts Multiple Values
+            
+          ### Uncomment below configuration if Synopsys Bridge diagnostic files needs to be uploaded
+          # include_diagnostics: true
 
-          ### SARIF report generation and upload to GitHub Adavanced Security: Uncomment below to enable
-          # blackduck_reports_sarif_create: true # Create Black Duck SARIF report and upload it as artifact
-          # blackduck_upload_sarif_report: true  # Upload Black Duck SARIF report in GitHub Advanced Security tab
-          # github_token: ${{ secrets.GITHUB_TOKEN }} # Required when blackduck_upload_sarif_report is set as true
+          ### SARIF report generation and upload to GitHub Adavanced Security Tab: Uncomment below to enable
+          # polaris_reports_sarif_create: true  
+          # polaris_reports_sarif_file_path: '/Users/tmp/report.sarif.json' # File path (including file name) where SARIF report is created.
+          # polaris_reports_sarif_severities: "CRITICAL,HIGH"
+          # polaris_reports_sarif_groupSCAIssues: true 
+          # polaris_reports_sarif_issue_types: 'SCA, SAST' 
+          # polaris_upload_sarif_report: true 
+          # github_token: ${{ secrets.GITHUB_TOKEN }} # Required when polaris_upload_sarif_report is set as true
+
+      - name: Polaris PR Scan
+        if: ${{ github.event_name == 'pull_request' }}
+        uses: synopsys-sig/synopsys-action@v1.10.0
+        with:
+          polaris_server_url: ${{ vars.POLARIS_SERVER_URL }}
+          polaris_access_token: ${{ secrets.POLARIS_ACCESS_TOKEN }}
+          polaris_application_name: ${{ github.event.repository.name }}
+          polaris_project_name: ${{ github.event.repository.name }}
+          polaris_assessment_types: "SCA,SAST"
+          
+          # project_directory: ${{ vars.PROJECT_DIRECTORY }}
+          ### Uncomment below configuration for source code upload 
+          # polaris_assessment_mode: "SOURCE_UPLOAD"
+          # project_source_archive: ${{ vars.PROJECT_SOURCE_ARCHIVE }}
+          # project_source_excludes: ${{ vars.PROJECT_SOURCE_EXCLUDES }} # Accepts Multiple Values
+          
+          ### Below configuration is used to enable feedback from Polaris security testing as pull request comment
+          polaris_prComment_enabled: true 
+          github_token: ${{ secrets.GITHUB_TOKEN }} 
+          # Mandatory when polaris_prComment_enabled is set to 'true'
+          
+          ### Uncomment below configuration if Synopsys Bridge diagnostic files needs to be uploaded
+          # include_diagnostics: true

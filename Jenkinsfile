@@ -27,7 +27,7 @@ pipeline {
                        polaris_assessment_types: "SCA,SAST", 
                        polaris_branch_name: "main",
                        polaris_application_name: "test_jenkins",
-                       polaris_project_name: "springboot-pipeline-test".
+                       polaris_project_name: "springboot-pipeline-test",
                        polaris_prComment_enabled: true
                 }
             }           

@@ -1,10 +1,6 @@
 pipeline {
     agent any
-    environment {
-        // BLACKDUCK_TRUST_CERT=true
-//         BRIDGE_POLARIS_SERVERURL = 'https://poc.polaris.synopsys.com'
-//         BRIDGE_POLARIS_ACCESSTOKEN = credentials('poc-polaris-token')
-    }
+  
     stages {
         stage("unit-test") {
             steps {

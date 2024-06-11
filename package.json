@@ -20,7 +20,8 @@
     "node-esapi": "0.0.1",
     "serve-favicon": "^2.3.0",
     "swig": "^1.4.2",
-    "underscore": "^1.8.3"
+    "underscore": "^1.8.3",
+    "jquery": "^1.8.2"
   },
   "comments": {
     "//": "a9 insecure components"
@@ -56,7 +57,7 @@
     "jshint": "2.12.0",
     "mocha": "^2.4.5",
     "nodemon": "^1.19.1",
-    "selenium-webdriver": "^2.53.2",
+    "selenium-webdriver": "^4.20.0",
     "should": "^8.3.1",
     "zaproxy": "^0.2.0"
   },

@@ -23,8 +23,8 @@ jobs:
           
         with:
           ### SCANNING: Required fields
-          # blackduck_url: ${{ vars.BLACKDUCK_URL }}
-          # blackduck_token: ${{ secrets.BLACKDUCK_TOKEN }}
+          blackduck_url: ${{ vars.BLACKDUCK_URL }}
+          blackduck_token: ${{ secrets.BLACKDUCK_TOKEN }}
 
           # PROJECT_DIRECTORY: "/home/maruf/invalid"
           # coverity_url: ${{ vars.COVERITY_URL }}
@@ -57,18 +57,18 @@ jobs:
           # github_token: ${{ secrets.GITHUB_TOKEN }} # Required when Fix PRs is enabled
           
           ### PULL REQUEST COMMENTS: Uncomment below to enable
-          # blackduck_prcomment_enabled: true 
+          blackduck_prcomment_enabled: true 
 
-          polaris_server_url: ${{ vars.POLARIS_SERVER_URL }}
-          polaris_access_token: ${{ secrets.POLARIS_ACCESS_TOKEN }}
-          polaris_assessment_types: "SCA,SAST"
-          polaris_application_name: "test_ado"
-          polaris_project_name: "test_ado"
-          polaris_assessment_mode: "SOURCE_UPLOAD"
-          project_directory: "/home/maruf/nodegoat"
-          project_source_archive: "/home/maruf/nodegoat.zip"
-          project_source_excludes: " .git"
-          polaris_prComment_enabled: true
+          # polaris_server_url: ${{ vars.POLARIS_SERVER_URL }}
+          # polaris_access_token: ${{ secrets.POLARIS_ACCESS_TOKEN }}
+          # polaris_assessment_types: "SCA,SAST"
+          # polaris_application_name: "test_ado"
+          # polaris_project_name: "test_ado"
+          # polaris_assessment_mode: "SOURCE_UPLOAD"
+          # project_directory: "/home/maruf/nodegoat"
+          # project_source_archive: "/home/maruf/nodegoat.zip"
+          # project_source_excludes: " .git"
+          # polaris_prComment_enabled: true
           # polaris_reports_sarif_create: true
           github_token: ${{ secrets.GITHUBTOKEN }} # Required when PR comments is enabled
           # github_token: ${{ secrets.GITHUBTOKEN }} # Required when PR comments is enabled

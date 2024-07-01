@@ -17,15 +17,23 @@ jobs:
         with:
           polaris_server_url: ${{ vars.POLARIS_SERVER_URL }}
           polaris_access_token: ${{ secrets.POLARIS_ACCESS_TOKEN }}
-          polaris_application_name: "test_jenkins"
-          polaris_project_name: "springboot-pipeline-test"
-          polaris_assessment_types: "SCA,SAST"
+          polaris_application_name: "test_ado"
+          polaris_project_name: "test_ado"
+          polaris_assessment_types: "SAST, SCA"
+
+          blackduck_search_depth: 2
+          blackduck_args: '--detect.diagnostic=false'
+          blackduck_config_path: '/user/yml'
+          coverity_build_command: 'mvn clean install'
+          coverity_clean_command: ''
+          coverity_config_path: ''
+          coverity_args: ''
           
-          project_directory: "/home/maruf/nodegoat"
+          # project_directory: "/home/maruf/nodegoat"
           ### Uncomment below configuration for source code upload 
-          polaris_assessment_mode: "SOURCE_UPLOAD"
-          project_source_archive: "/home/maruf/nodegoat.zip"
-          project_source_excludes: ".git"   # Accepts Multiple Values
+          # polaris_assessment_mode: "SOURCE_UPLOAD"
+          # project_source_archive: "/home/maruf/nodegoat.zip"
+          # project_source_excludes: ".git"   # Accepts Multiple Values
             
           ### Uncomment below configuration if Synopsys Bridge diagnostic files needs to be uploaded
           # include_diagnostics: true

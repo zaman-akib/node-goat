@@ -1,72 +1,38 @@
-name: CI-Polaris 
+name: CI_BLACKDUCK_SADMAN
 on:
   push:
     branches: [ main, master, develop, stage, release ]
   pull_request:
-    branches: [ main, master, develop, stage, release ]  
+    branches: [ main, master, develop, stage, release ]
 jobs:
-  polaris-scan:
-    runs-on: [ self-hosted ]
+  build:
+    runs-on: [ ubuntu-latest ]
     steps:
       - name: Checkout Source
-        uses: actions/checkout@v3
-            
-      - name: Polaris Full Scan
+        uses: actions/checkout@v4
+      - name: Black Duck Full Scan
         if: ${{ github.event_name != 'pull_request' }}
         uses: synopsys-sig/synopsys-action@SIGINT-2008
+        ### Use below configuration to set specific detect environment variables
+        env:
+          DETECT_PROJECT_NAME: ${{ github.event.repository.name }}
         with:
-          polaris_server_url: ${{ vars.POLARIS_SERVER_URL }}
-          polaris_access_token: ${{ secrets.POLARIS_ACCESS_TOKEN }}
-          polaris_application_name: "test_ado"
-          polaris_project_name: "test_ado"
-          polaris_assessment_types: "SAST, SCA"
-
+          # synopsys_bridge_download_url: https://artifactory.internal.synopsys.com/artifactory/clops-local/clops.sig.synopsys.com/synopsys-bridge/2.5.13/synopsys-bridge-2.5.13-macosx.zip
+          # blackduck_reports_sarif_create: true                    
+          # blackduck_reports_sarif_file_path:
+          # blackduck_reports_sarif_severities:
+          # blackduck_reports_sarif_groupSCAIssues:
+          blackduck_url: ${{ secrets.BLACKDUCK_URL }}
+          blackduck_apiToken: ${{ secrets.BLACKDUCK_API_TOKEN }}
+          # blackduck_scan_full: true
+          ### Accepts Multiple Values
+          # blackduck_scan_failure_severities: 'BLOCKER,CRITICAL'
           blackduck_search_depth: 2
-          blackduck_args: '--detect.diagnostic=false'
-          blackduck_config_path: '/user/yml'
-          coverity_build_command: 'mvn clean install'
-          coverity_clean_command: ''
-          coverity_config_path: ''
-          coverity_args: ''
-          
-          # project_directory: "/home/maruf/nodegoat"
-          ### Uncomment below configuration for source code upload 
-          # polaris_assessment_mode: "SOURCE_UPLOAD"
-          # project_source_archive: "/home/maruf/nodegoat.zip"
-          # project_source_excludes: ".git"   # Accepts Multiple Values
-            
-          ### Uncomment below configuration if Synopsys Bridge diagnostic files needs to be uploaded
-          # include_diagnostics: true
-
-          ### SARIF report generation and upload to GitHub Adavanced Security Tab: Uncomment below to enable
-          # polaris_reports_sarif_create: true  
-          # polaris_reports_sarif_file_path: '/Users/tmp/report.sarif.json' # File path (including file name) where SARIF report is created.
-          # polaris_reports_sarif_severities: "CRITICAL,HIGH"
-          # polaris_reports_sarif_groupSCAIssues: true 
-          # polaris_reports_sarif_issue_types: 'SCA, SAST' 
-          # polaris_upload_sarif_report: true 
-          # github_token: ${{ secrets.GITHUB_TOKEN }} # Required when polaris_upload_sarif_report is set as true
-
-      - name: Polaris PR Scan
-        if: ${{ github.event_name == 'pull_request' }}
-        uses: synopsys-sig/synopsys-action@v1.10.0
-        with:
-          polaris_server_url: ${{ vars.POLARIS_SERVER_URL }}
-          polaris_access_token: ${{ secrets.POLARIS_ACCESS_TOKEN }}
-          polaris_application_name: ${{ github.event.repository.name }}
-          polaris_project_name: ${{ github.event.repository.name }}
-          polaris_assessment_types: "SCA,SAST"
-          
-          # project_directory: ${{ vars.PROJECT_DIRECTORY }}
-          ### Uncomment below configuration for source code upload 
-          # polaris_assessment_mode: "SOURCE_UPLOAD"
-          # project_source_archive: ${{ vars.PROJECT_SOURCE_ARCHIVE }}
-          # project_source_excludes: ${{ vars.PROJECT_SOURCE_EXCLUDES }} # Accepts Multiple Values
-          
-          ### Below configuration is used to enable feedback from Polaris security testing as pull request comment
-          polaris_prComment_enabled: true 
-          github_token: ${{ secrets.GITHUB_TOKEN }} 
-          # Mandatory when polaris_prComment_enabled is set to 'true'
-          
-          ### Uncomment below configuration if Synopsys Bridge diagnostic files needs to be uploaded
-          # include_diagnostics: true
+          blackduck_args: '--detect.diagnostic=true'
+          blackduck_config_path: '/Users/siyaram/Downloads/SynopsysTestConfig/application.properties'
+          ### Uncomment below configuration to enable automatic fix pull request creation if vulnerabilities are reported
+          # blackduck_fixpr_enabled: true
+          # blackduck_fixpr_maxCount: 5
+          # blackduck_fixpr_filter_severities: 'CRITICAL,HIGH'
+          # blackduck_fixpr_useUpgradeGuidance: 'SHORT_TERM,LONG_TERM'
+          github_token: ${{ secrets.GITHUB_TOKEN }} # Mandatory when blackduck_fixpr_enabled is set to 'true'

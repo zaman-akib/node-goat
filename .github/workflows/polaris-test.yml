@@ -36,4 +36,4 @@ jobs:
           polaris_application_name: 'test_ado'
           polaris_project_name: 'test_ado'
           polaris_assessment_types: "SCA,SAST"
-          polaris_reports_sarif_create: true
+          # polaris_reports_sarif_create: true

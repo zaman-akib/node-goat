@@ -24,8 +24,8 @@ pipeline {
                        // polaris_server_url: "${BRIDGE_POLARIS_SERVERURL}",
                        // polaris_access_token: "${BRIDGE_POLARIS_ACCESSTOKEN}",
                        polaris_assessment_types: "SCA",
-                       polaris_application_name: "test_ado",
-                       polaris_project_name: "test_ado"
+                       polaris_application_name: "test_jenkins",
+                       polaris_project_name: "test_jenkins"
                 }
             }           
         }

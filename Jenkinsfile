@@ -23,10 +23,9 @@ pipeline {
                    synopsys_scan product: "polaris",
                        // polaris_server_url: "${BRIDGE_POLARIS_SERVERURL}",
                        // polaris_access_token: "${BRIDGE_POLARIS_ACCESSTOKEN}",
-                       polaris_assessment_types: "SCA", 
-                       polaris_branch_name: "main",
-                       polaris_application_name: "test_jenkins",
-                       polaris_project_name: "springboot-pipeline-test"
+                       polaris_assessment_types: "SCA",
+                       polaris_application_name: "E2E-Integration-App",
+                       polaris_project_name: "TestProject"
                 }
             }           
         }

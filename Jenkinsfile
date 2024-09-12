@@ -20,7 +20,7 @@ pipeline {
            steps {
                echo 'SYNOPSYS SECURITY SCAN STARTED'
                script {
-                   synopsys_scan product: "polaris",
+                   blackduck_scan product: "polaris",
                        // polaris_server_url: "${BRIDGE_POLARIS_SERVERURL}",
                        // polaris_access_token: "${BRIDGE_POLARIS_ACCESSTOKEN}",
                        polaris_assessment_types: "SCA",

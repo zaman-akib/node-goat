@@ -18,7 +18,7 @@ pipeline {
         }
         stage('Polaris Analysis') {
             steps {
-                polaris arguments: 'analyze', polarisCli: 'MyPolaris'
+                polaris arguments: 'analyze', polarisCli: 'CoP'
             }
         }
         stage('Polaris Issue Check') {

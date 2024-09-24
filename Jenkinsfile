@@ -16,16 +16,15 @@ pipeline {
                 echo 'FUNCTIONAL TEST EXECUTION STARTED'
             }
         }
-        stage("synopsys-security-scan") {
-           steps {
-               echo 'SYNOPSYS SECURITY SCAN STARTED'
-               script {
-                   synopsys_scan product: "polaris",
-                       polaris_assessment_types: "SCA",
-                       polaris_application_name: "test_jenkins",
-                       polaris_project_name: "test_jenkins"
-                }
-            }           
+        stage('Polaris Analysis') {
+            steps {
+                polaris arguments: 'analyze', polarisCli: 'MyPolaris'
+            }
+        }
+        stage('Polaris Issue Check') {
+            steps {
+                polarisIssueCheck()
+            }
         }
         stage("build") {
             steps {

@@ -19,7 +19,7 @@ pipeline {
         stage('Polaris Analysis') {
             steps {
                 echo 'POLARIS ANALYSIS STARTED'
-                polaris arguments: 'analyze', polarisCli: 'CoP'
+                polaris arguments: 'analyze -w', polarisCli: 'CoP'
             }
         }
         stage("build") {

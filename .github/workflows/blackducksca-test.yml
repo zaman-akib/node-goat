@@ -31,7 +31,7 @@ jobs:
         # Use the action defined in this repository
         uses: blackduck-inc/black-duck-security-scan@SIGINT-2423
         with:
-          blackduck_url: ${{ vars.BLACKDUCKSCA_URL }}
+          # blackduck_url: ${{ vars.BLACKDUCKSCA_URL }}
           blackduck_token: ${{ secrets.BLACKDUCKSCA_TOKEN }}
           blackducksca_reports_sarif_create: true
           github_token: ${{ secrets.GITHUB_TOKEN }}

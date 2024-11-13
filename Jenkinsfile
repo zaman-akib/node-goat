@@ -16,14 +16,11 @@ pipeline {
                 echo 'FUNCTIONAL TEST EXECUTION STARTED'
             }
         }
-        stage("synopsys-security-scan") {
+        stage("black-duck-security-scan") {
            steps {
-               echo 'SYNOPSYS SECURITY SCAN STARTED'
+               echo 'BLACK DUCK SECURITY SCAN STARTED'
                script {
-                   synopsys_scan product: "polaris",
-                       polaris_assessment_types: "SCA",
-                       polaris_application_name: "test_jenkins",
-                       polaris_project_name: "test_jenkins"
+                   security_scan product: "blackducksca"
                 }
             }           
         }

@@ -20,7 +20,7 @@ pipeline {
            steps {
                echo 'BLACK DUCK SECURITY SCAN STARTED'
                script {
-                   security_scan product: "blackduck", blackduck_scan_full: true, blackduck_reports_sarif_create: true
+                   security_scan product: "blackducksca", blackducksca_reports_sarif_create: true
                 }
             }           
         }

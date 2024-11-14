@@ -21,7 +21,7 @@ pipeline {
                echo 'BLACK DUCK SECURITY SCAN STARTED'
                script {
                    security_scan product: "blackducksca", blackducksca_reports_sarif_create: true, blackducksca_waitForScan: false, 
-                       blackducksca_search_depth: 2, blackducksca_config_path: '/test/path', blackducksca_args: '--diagnostics', project_directory: '/test/dir'
+                       detect_search_depth: 2, detect_config_path: '/test/path', detect_args: '--diagnostics', project_directory: '/test/dir'
                 }
             }           
         }

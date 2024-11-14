@@ -20,8 +20,7 @@ pipeline {
            steps {
                echo 'BLACK DUCK SECURITY SCAN STARTED'
                script {
-                   security_scan product: "blackducksca", blackducksca_reports_sarif_create: true, blackducksca_waitForScan: false, 
-                       detect_search_depth: 2, detect_config_path: '/test/path', detect_args: '--diagnostics', project_directory: '/test/dir'
+                   security_scan product: "blackducksca", blackducksca_reports_sarif_create: true
                 }
             }           
         }

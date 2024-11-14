@@ -20,7 +20,7 @@ pipeline {
            steps {
                echo 'BLACK DUCK SECURITY SCAN STARTED'
                script {
-                   security_scan product: "blackducksca", blackducksca_reports_sarif_create: true, bridgecli_download_version: '2.9.15'
+                   security_scan product: "blackducksca", blackducksca_reports_sarif_create: true, bridgecli_download_version: '2.9.14'
                 }
             }           
         }

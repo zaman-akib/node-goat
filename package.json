@@ -59,7 +59,7 @@
     "selenium-webdriver": "^2.53.2",
     "should": "^8.3.1",
     "zaproxy": "^0.2.0",
-    "jquery": "^1.8.2"
+    "jquery": "^3.7.1"
   },
   "repository": "https://github.com/OWASP/NodejsGoat",
   "license": "Apache 2.0"
